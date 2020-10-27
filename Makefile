@@ -25,5 +25,9 @@ dags_copy_part_1:
 dags_copy_part_2:
 	cp part_2/example_python_operator.py dags/.
 
+dags_copy_part_3:
+	cp part_3/example_python_branch_operator.py dags/.
+
+
 force_refresh_dags:
 	${SUDO} docker exec -it my_airflow python -c "from airflow.models import DagBag; d = DagBag();"
