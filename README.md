@@ -7,4 +7,4 @@ https://airflow.apache.org/
 https://airflow.apache.org/docs/stable/
 
 ## Examples
-Examples we're grabbed used here come from: https://github.com/apache/airflow/tree/master/airflow/example_dags
+Examples we're grabbed used here come from: https://github.com/apache/airflow/tree/1.10.12/airflow/example_dags
