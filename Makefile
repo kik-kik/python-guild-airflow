@@ -19,14 +19,20 @@ docker_run: docker_build
 docker_kill:
 	${SUDO} docker kill my_airflow
 
-dags_copy_part_1:
-	cp part_1/example_bash_operator.py dags/.
 
-dags_copy_part_2:
-	cp part_2/example_python_operator.py dags/.
+copy_example_1:
+	cp .examples/example_bash_operator.py dags/.
 
-dags_copy_part_3:
-	cp part_3/example_python_branch_operator.py dags/.
+copy_example_2:
+	cp .examples/example_python_operator.py dags/.
+
+copy_example_3:
+	cp .examples/example_python_branch_operator.py dags/.
+
+copy_example_4:
+	cp .examples/example_complex.py dags/.
+
+copy_all_examples: copy_example_1 copy_example_2 copy_example_3 copy_example_4
 
 
 force_refresh_dags:
