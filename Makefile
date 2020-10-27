@@ -20,16 +20,19 @@ docker_kill:
 	${SUDO} docker kill my_airflow
 
 
-copy_example_1:
+mk_dags_dir:
+	mkdir dags/
+
+copy_example_1: mk_dags_dir
 	cp .examples/example_bash_operator.py dags/.
 
-copy_example_2:
+copy_example_2: mk_dags_dir
 	cp .examples/example_python_operator.py dags/.
 
-copy_example_3:
+copy_example_3: mk_dags_dir
 	cp .examples/example_python_branch_operator.py dags/.
 
-copy_example_4:
+copy_example_4: mk_dags_dir
 	cp .examples/example_complex.py dags/.
 
 copy_all_examples: copy_example_1 copy_example_2 copy_example_3 copy_example_4
@@ -37,3 +40,6 @@ copy_all_examples: copy_example_1 copy_example_2 copy_example_3 copy_example_4
 
 force_refresh_dags:
 	${SUDO} docker exec -it my_airflow python -c "from airflow.models import DagBag; d = DagBag();"
+
+cleanup: docker_kill
+	rm -rf dags
