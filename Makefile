@@ -13,7 +13,7 @@ endif
 docker_build:
 	${SUDO} docker build . -t airflow:latest
 
-docker_run: docker_build
+docker_run: docker_build mk_dags_dir
 	${SUDO} docker run -d --rm --name my_airflow -p 8080:8080 -v `pwd`/dags/:/usr/local/airflow/dags/ airflow:latest
 
 docker_kill:
